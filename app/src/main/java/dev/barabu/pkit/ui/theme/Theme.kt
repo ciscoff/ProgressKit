@@ -33,8 +33,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 data class AppExtraColors(
-    val rotatingPlane: Color = Color.Unspecified,
-    val chasingDots: Color = Color.Unspecified
+    val textPrimary: Color = Color.Unspecified,
 )
 
 val LocalExtraColors = staticCompositionLocalOf {
