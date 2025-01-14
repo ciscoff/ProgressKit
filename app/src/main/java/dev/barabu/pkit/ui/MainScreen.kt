@@ -27,13 +27,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
-import dev.barabu.pkit.ui.chasing_dots.ChasingDots
-import dev.barabu.pkit.ui.rotating_plane.RotatingPlane
+import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
+import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
+import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
+import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
+import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
     RotatingPlane("Rotating plane", RotatingPlaneColor),
+    FoldingGrid("Folding Grid", FoldingGridColor),
     ChasingDots("Chasing dots", ChasingDotsColor)
 }
 
@@ -67,7 +71,7 @@ fun MainScreen(windowInsets: PaddingValues) {
                 lerp(
                     start = Screen.entries[currentPage].color,
                     stop = Screen.entries[currentPage - 1].color,
-                    fraction = fraction
+                    fraction = abs(fraction)
                 )
             }
         }
@@ -110,6 +114,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                         RotatingPlane(
                             tintColor = Color.White,
                             boxSize = 100.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+                    Screen.FoldingGrid -> {
+                        FoldingGrid(
+                            tintColor = Color.White,
+                            boxSize = 160.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }

@@ -12,6 +12,7 @@ val Pink40 = Color(0xFF7D5260)
 
 val RotatingPlaneColor = Color(0xffd35400)
 val ChasingDotsColor = Color(0xff2c3e50)
+val FoldingGridColor = Color(0xff2980b9)
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified

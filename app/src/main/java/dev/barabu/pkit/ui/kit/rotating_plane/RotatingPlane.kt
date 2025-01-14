@@ -1,4 +1,4 @@
-package dev.barabu.pkit.ui.rotating_plane
+package dev.barabu.pkit.ui.kit.rotating_plane
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode

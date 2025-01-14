@@ -1,4 +1,4 @@
-package dev.barabu.pkit.ui.chasing_dots
+package dev.barabu.pkit.ui.kit.chasing_dots
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
