@@ -14,6 +14,8 @@ val RotatingPlaneColor = Color(0xffd35400)
 val ChasingDotsColor = Color(0xff2c3e50)
 val FoldingGridColor = Color(0xff2980b9)
 val CubeGridColor = Color(0xff2c3e50)
+val FadingDotsColor = Color(0xff1abc9c)
+val DoubleBounceColor = Color(0xff1abc9c)
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified

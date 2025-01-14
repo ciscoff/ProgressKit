@@ -29,10 +29,13 @@ import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
 import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
 import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
+import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
+import dev.barabu.pkit.ui.theme.DoubleBounceColor
+import dev.barabu.pkit.ui.theme.FadingDotsColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import kotlin.math.abs
@@ -41,6 +44,8 @@ enum class Screen(val title: String, val color: Color) {
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
     CubeGrid("Cube Grid", CubeGridColor),
+    DoubleBounce("Double Bounce", DoubleBounceColor),
+//    FadingDots("Fading Dots", FadingDotsColor),
     ChasingDots("Chasing dots", ChasingDotsColor)
 }
 
@@ -136,6 +141,17 @@ fun MainScreen(windowInsets: PaddingValues) {
                             modifier = fillMaxSizeModifier
                         )
                     }
+
+                    Screen.DoubleBounce -> {
+                        DoubleBounce(
+                            tintColor = Color.White,
+                            boxSize = 80.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+//                    Screen.FadingDots -> {
+//                    }
 
                     Screen.ChasingDots -> {
                         ChasingDots(

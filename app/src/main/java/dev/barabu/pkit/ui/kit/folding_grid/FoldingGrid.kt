@@ -63,7 +63,6 @@ fun FoldingGrid(
             }
             .background(color = Color.Unspecified)
     ) {
-        // Строка из двух столбцов
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
