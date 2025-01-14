@@ -28,9 +28,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
 import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
+import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
+import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import kotlin.math.abs
@@ -38,6 +40,7 @@ import kotlin.math.abs
 enum class Screen(val title: String, val color: Color) {
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
+    CubeGrid("Cube Grid", CubeGridColor),
     ChasingDots("Chasing dots", ChasingDotsColor)
 }
 
@@ -122,6 +125,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                         FoldingGrid(
                             tintColor = Color.White,
                             boxSize = 160.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+                    Screen.CubeGrid -> {
+                        CubeGrid(
+                            tintColor = Color.White,
+                            tileSize = 30.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }
