@@ -17,6 +17,7 @@ val CubeGridColor = Color(0xff2c3e50)
 val FadingDotsColor = Color(0xff1abc9c)
 val DoubleBounceColor = Color(0xff1abc9c)
 val WanderingCubesColor = Color.DarkGray
+val RoundRippleColor = Color(0xffffcb65)
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified
