@@ -16,7 +16,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import kotlin.math.PI
 import kotlin.math.cos
@@ -32,7 +31,6 @@ fun ChasingDots(
 ) {
 
     val infiniteTransition = rememberInfiniteTransition(label = "infiniteTransition")
-    val brush = remember { SolidColor(tintColor) }
 
     val twoPi = (2 * PI).toFloat()
     val phaseShift = twoPi / 3
@@ -70,7 +68,7 @@ fun ChasingDots(
                         center + Offset(cos(angle) * offsetHor, scale * radius * offY)
 
                     drawCircle(
-                        brush = brush,
+                        color = tintColor,
                         radius = radius * scale,
                         center = circleCenter,
                     )
