@@ -7,9 +7,7 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,8 +16,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import kotlin.math.PI
@@ -32,8 +28,6 @@ import kotlin.math.sin
 fun ChasingDots(
     tintColor: Color,
     boxSize: Dp,
-    containerColor: Color = Color.Unspecified,
-    containerShape: Shape = RectangleShape,
     modifier: Modifier = Modifier
 ) {
 
@@ -60,7 +54,7 @@ fun ChasingDots(
 
     Box(
         contentAlignment = Alignment.Center,
-        modifier = modifier.background(color = containerColor, shape = containerShape)
+        modifier = modifier
     ) {
 
         Canvas(modifier = Modifier.size(boxSize)) {
@@ -70,9 +64,10 @@ fun ChasingDots(
                 val angle = fraction * twoPi + angleOffset
                 val scale = max(0f, sin(angle))
 
-                if(scale > 0.0001f) {
+                if (scale > 0.0001f) {
                     val offsetHor = radius * offX
-                    val circleCenter = center + Offset(cos(angle) * offsetHor, scale * radius * offY)
+                    val circleCenter =
+                        center + Offset(cos(angle) * offsetHor, scale * radius * offY)
 
                     drawCircle(
                         brush = brush,

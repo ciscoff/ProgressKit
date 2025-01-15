@@ -16,6 +16,7 @@ val FoldingGridColor = Color(0xff2980b9)
 val CubeGridColor = Color(0xff2c3e50)
 val FadingDotsColor = Color(0xff1abc9c)
 val DoubleBounceColor = Color(0xff1abc9c)
+val WanderingCubesColor = Color.DarkGray
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified

@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import dev.barabu.pkit.utils.bezier.CubicBezierCompatible
+import dev.barabu.pkit.utils.bezier.CubicBezierCompat
 import kotlin.math.min
 
 @Composable
@@ -28,7 +28,7 @@ fun DoubleBounce(
 ) {
 
     val easeInEaseOut = remember {
-        CubicBezierCompatible(
+        CubicBezierCompat(
             b = PointF(0.3f, 0f),
             c = PointF(0.7f, 1f)
         )
