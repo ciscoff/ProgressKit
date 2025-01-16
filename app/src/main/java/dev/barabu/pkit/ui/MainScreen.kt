@@ -31,6 +31,7 @@ import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
 import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
+import dev.barabu.pkit.ui.kit.racing_dots.RacingDots
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.kit.round_ripple.RoundRipple
 import dev.barabu.pkit.ui.kit.running_beads.RunningBeads
@@ -40,6 +41,7 @@ import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
+import dev.barabu.pkit.ui.theme.RacingDotsColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import dev.barabu.pkit.ui.theme.RoundRippleColor
 import dev.barabu.pkit.ui.theme.RunningBeadsColor
@@ -56,6 +58,7 @@ enum class Screen(val title: String, val color: Color) {
     RoundRipple("Round Ripple", RoundRippleColor),
     ThreeBounce("Three Bounce", ThreeBounceColor),
     RunningBeads("Running Beads", RunningBeadsColor),
+    RacingDots("Racing Dots", RacingDotsColor),
 
     //    FadingDots("Fading Dots", FadingDotsColor),
     ChasingDots("Chasing dots", ChasingDotsColor)
@@ -105,6 +108,9 @@ fun MainScreen(windowInsets: PaddingValues) {
         modifier = Modifier
             .fillMaxSize()
             .consumeWindowInsets(windowInsets)
+        /*.drawBehind {
+            drawRect(color = backgroundColor, size = size)
+        }*/
     ) {
         // Background
         Spacer(modifier = Modifier
@@ -189,6 +195,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                     Screen.RunningBeads -> {
                         RunningBeads(
                             tintColor = Color.White,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+                    Screen.RacingDots -> {
+                        RacingDots(
+                            tintColor = Color.White,
+                            boxSize = 160.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }
