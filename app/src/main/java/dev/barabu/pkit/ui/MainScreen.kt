@@ -33,6 +33,7 @@ import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.kit.round_ripple.RoundRipple
+import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
@@ -40,6 +41,7 @@ import dev.barabu.pkit.ui.theme.DoubleBounceColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import dev.barabu.pkit.ui.theme.RoundRippleColor
+import dev.barabu.pkit.ui.theme.ThreeBounceColor
 import dev.barabu.pkit.ui.theme.WanderingCubesColor
 import kotlin.math.abs
 
@@ -50,6 +52,7 @@ enum class Screen(val title: String, val color: Color) {
     WanderingCubes("Wandering Cubes", WanderingCubesColor),
     DoubleBounce("Double Bounce", DoubleBounceColor),
     RoundRipple("Round Ripple", RoundRippleColor),
+    ThreeBounce("Three Bounce", ThreeBounceColor),
 
     //    FadingDots("Fading Dots", FadingDotsColor),
     ChasingDots("Chasing dots", ChasingDotsColor)
@@ -168,6 +171,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                         RoundRipple(
                             tintColor = Color.White,
                             boxSize = 80.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+                    Screen.ThreeBounce -> {
+                        ThreeBounce(
+                            tintColor = Color.White,
+                            dotSize = 20.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }
