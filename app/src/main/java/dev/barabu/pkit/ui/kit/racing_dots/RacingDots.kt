@@ -70,7 +70,7 @@ fun RacingDots(
     val infiniteTransition = rememberInfiniteTransition(label = "infiniteTransition")
 
     val density = LocalDensity.current
-    val dotRadius = remember { with(density) { boxSize.toPx() * 0.05f } }
+    val dotRadius = remember { with(density) { boxSize.toPx() * 0.06f } }
 
     val easing = remember { getCenteredEasing(qty = numDots) }
 

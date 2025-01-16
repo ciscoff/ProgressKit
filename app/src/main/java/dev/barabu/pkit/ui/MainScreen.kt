@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
@@ -39,6 +40,7 @@ import dev.barabu.pkit.ui.kit.running_beads.RunningBeads
 import dev.barabu.pkit.ui.kit.scaled_dots.ScaledDots
 import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
+import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
@@ -51,6 +53,7 @@ import dev.barabu.pkit.ui.theme.RunningBeadsColor
 import dev.barabu.pkit.ui.theme.ScaledDotsColor
 import dev.barabu.pkit.ui.theme.ThreeBounceColor
 import dev.barabu.pkit.ui.theme.WanderingCubesColor
+import dev.barabu.pkit.ui.theme.WaveStripesColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
@@ -65,7 +68,8 @@ enum class Screen(val title: String, val color: Color) {
     RacingDots("Racing Dots", RacingDotsColor),
     FadingDots("Fading Dots", FadingDotsColor),
     ScaledDots("Scaled Dots", ScaledDotsColor),
-    ChasingDots("Chasing dots", ChasingDotsColor)
+    ChasingDots("Chasing dots", ChasingDotsColor),
+    WaveStripes("Wave Stripes", WaveStripesColor),
 }
 
 @Composable
@@ -231,6 +235,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                         ChasingDots(
                             tintColor = Color.White,
                             boxSize = 100.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
+                    Screen.WaveStripes -> {
+                        WaveStripes(
+                            tintColor = Color.White,
+                            stripSizeDp = DpSize(12.dp, 36.dp),
                             modifier = fillMaxSizeModifier
                         )
                     }
