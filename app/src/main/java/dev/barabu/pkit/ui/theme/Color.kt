@@ -19,8 +19,9 @@ val DoubleBounceColor = Color(0xff1abc9c)
 val WanderingCubesColor = Color.DarkGray
 val RoundRippleColor = Color(0xffffcb65)
 val ThreeBounceColor = Color(0xff27ae60)
-val RunningBeadsColor = Color(0xFF3F51B5)
-val RacingDotsColor = Color(0xffd35400)
+val RunningBeadsColor = Color(0xff795548)
+val RacingDotsColor = Color(0xFF3F51B5)
+val ScaledDotsColor = Color(0xffd35400)
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified
