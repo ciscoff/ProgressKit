@@ -23,6 +23,7 @@ val RunningBeadsColor = Color(0xff795548)
 val RacingDotsColor = Color(0xFF3F51B5)
 val ScaledDotsColor = Color(0xffd35400)
 val WaveStripesColor = Color(0xff2980b9)
+val AquariumColor = Color(0xFFF96E2A)
 
 val DarkExtraColors = AppExtraColors(
     textPrimary = Color.Unspecified

@@ -41,6 +41,8 @@ import dev.barabu.pkit.ui.kit.scaled_dots.ScaledDots
 import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
 import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
+import dev.barabu.pkit.ui.live_pictures.AquariumFish
+import dev.barabu.pkit.ui.theme.AquariumColor
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
@@ -57,6 +59,7 @@ import dev.barabu.pkit.ui.theme.WaveStripesColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
+    Aquarium("Aquarium", AquariumColor),
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
     CubeGrid("Cube Grid", CubeGridColor),
@@ -144,6 +147,11 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.Aquarium -> {
+                        AquariumFish(modifier = fillMaxSizeModifier)
+                    }
+
                     Screen.RotatingPlane -> {
                         RotatingPlane(
                             tintColor = Color.White,
