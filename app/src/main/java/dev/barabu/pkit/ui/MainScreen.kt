@@ -33,6 +33,7 @@ import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.fading_dots.FadingDots
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
+import dev.barabu.pkit.ui.kit.miui_launcher.MiuiLauncher
 import dev.barabu.pkit.ui.kit.racing_dots.RacingDots
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.kit.round_ripple.RoundRipple
@@ -48,6 +49,7 @@ import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
 import dev.barabu.pkit.ui.theme.FadingDotsColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
+import dev.barabu.pkit.ui.theme.MiuiLauncherColor
 import dev.barabu.pkit.ui.theme.RacingDotsColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import dev.barabu.pkit.ui.theme.RoundRippleColor
@@ -59,8 +61,8 @@ import dev.barabu.pkit.ui.theme.WaveStripesColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
-    Aquarium("Aquarium", AquariumColor),
     RotatingPlane("Rotating plane", RotatingPlaneColor),
+    MiuiLauncher("Miui Launcher", MiuiLauncherColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
     CubeGrid("Cube Grid", CubeGridColor),
     WanderingCubes("Wandering Cubes", WanderingCubesColor),
@@ -73,6 +75,7 @@ enum class Screen(val title: String, val color: Color) {
     ScaledDots("Scaled Dots", ScaledDotsColor),
     ChasingDots("Chasing dots", ChasingDotsColor),
     WaveStripes("Wave Stripes", WaveStripesColor),
+    Aquarium("Aquarium", AquariumColor),
 }
 
 @Composable
@@ -152,10 +155,18 @@ fun MainScreen(windowInsets: PaddingValues) {
                         AquariumFish(modifier = fillMaxSizeModifier)
                     }
 
+                    Screen.MiuiLauncher -> {
+                        MiuiLauncher(
+                            color = Color.White,
+                            tileSize = 24.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
+
                     Screen.RotatingPlane -> {
                         RotatingPlane(
                             tintColor = Color.White,
-                            boxSize = 100.dp,
+                            boxSize = 80.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }
