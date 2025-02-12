@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
 import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
+import dev.barabu.pkit.ui.kit.citrix_launcher.CitrixLauncher
 import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.fading_dots.FadingDots
@@ -45,6 +46,7 @@ import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
 import dev.barabu.pkit.ui.live_pictures.AquariumFish
 import dev.barabu.pkit.ui.theme.AquariumColor
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
+import dev.barabu.pkit.ui.theme.CitrixLauncherColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
 import dev.barabu.pkit.ui.theme.FadingDotsColor
@@ -70,6 +72,7 @@ enum class Screen(val title: String, val color: Color) {
     RoundRipple("Round Ripple", RoundRippleColor),
     ThreeBounce("Three Bounce", ThreeBounceColor),
     RunningBeads("Running Beads", RunningBeadsColor),
+    CitrixLauncher("Citrix Launcher", CitrixLauncherColor),
     RacingDots("Racing Dots", RacingDotsColor),
     FadingDots("Fading Dots", FadingDotsColor),
     ScaledDots("Scaled Dots", ScaledDotsColor),
@@ -122,9 +125,6 @@ fun MainScreen(windowInsets: PaddingValues) {
         modifier = Modifier
             .fillMaxSize()
             .consumeWindowInsets(windowInsets)
-        /*.drawBehind {
-            drawRect(color = backgroundColor, size = size)
-        }*/
     ) {
         // Background
         Spacer(modifier = Modifier
@@ -150,6 +150,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.CitrixLauncher -> {
+                        CitrixLauncher(
+                            tint = Color.White,
+                            boxSize = 80.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
 
                     Screen.Aquarium -> {
                         AquariumFish(modifier = fillMaxSizeModifier)

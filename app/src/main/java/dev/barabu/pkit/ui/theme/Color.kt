@@ -20,6 +20,7 @@ val WanderingCubesColor = Color.DarkGray
 val RoundRippleColor = Color(0xffffa000)
 val ThreeBounceColor = Color(0xff27ae60)
 val RunningBeadsColor = Color(0xff795548)
+val CitrixLauncherColor = Color(0xFFAAAACC)
 val RacingDotsColor = Color(0xFF3F51B5)
 val ScaledDotsColor = Color(0xffd35400)
 val WaveStripesColor = Color(0xFF78B3CE)
