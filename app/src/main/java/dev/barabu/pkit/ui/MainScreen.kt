@@ -34,6 +34,7 @@ import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
 import dev.barabu.pkit.ui.kit.fading_dots.FadingDots
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
+import dev.barabu.pkit.ui.kit.heart_beat.HeartBeat
 import dev.barabu.pkit.ui.kit.miui_launcher.MiuiLauncher
 import dev.barabu.pkit.ui.kit.racing_dots.RacingDots
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
@@ -51,6 +52,7 @@ import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
 import dev.barabu.pkit.ui.theme.FadingDotsColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
+import dev.barabu.pkit.ui.theme.HeartBeatColor
 import dev.barabu.pkit.ui.theme.MiuiLauncherColor
 import dev.barabu.pkit.ui.theme.RacingDotsColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
@@ -72,6 +74,7 @@ enum class Screen(val title: String, val color: Color) {
     RoundRipple("Round Ripple", RoundRippleColor),
     ThreeBounce("Three Bounce", ThreeBounceColor),
     RunningBeads("Running Beads", RunningBeadsColor),
+    HeartBeat("Heart Beat", HeartBeatColor),
     CitrixLauncher("Citrix Launcher", CitrixLauncherColor),
     RacingDots("Racing Dots", RacingDotsColor),
     FadingDots("Fading Dots", FadingDotsColor),
@@ -125,6 +128,9 @@ fun MainScreen(windowInsets: PaddingValues) {
         modifier = Modifier
             .fillMaxSize()
             .consumeWindowInsets(windowInsets)
+        /*.drawBehind {
+            drawRect(color = backgroundColor, size = size)
+        }*/
     ) {
         // Background
         Spacer(modifier = Modifier
@@ -150,6 +156,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.HeartBeat -> {
+                        HeartBeat(
+                            tint = Color.Red,
+                            boxSize = 120.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
 
                     Screen.CitrixLauncher -> {
                         CitrixLauncher(
@@ -277,4 +291,21 @@ fun MainScreen(windowInsets: PaddingValues) {
             }
         }
     }
+
+//    val isDarkMode = isSystemInDarkTheme()
+//    val context = LocalContext.current as ComponentActivity
+//    DisposableEffect(isDarkMode) {
+//        context.enableEdgeToEdge(
+//            navigationBarStyle = if(!isDarkMode){
+//                SystemBarStyle.light(
+//                    scrim = Color.Transparent.toArgb(), // background color
+//                    darkScrim = Color.Transparent.toArgb()
+//                )
+//            } else {
+//                SystemBarStyle.dark(scrim = Color.Transparent.toArgb())
+//            }
+//        )
+//        onDispose {
+//        }
+//    }
 }
