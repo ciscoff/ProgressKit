@@ -36,6 +36,7 @@ import dev.barabu.pkit.ui.kit.fading_dots.FadingDots
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
 import dev.barabu.pkit.ui.kit.heart_beat.HeartBeat
 import dev.barabu.pkit.ui.kit.miui_launcher.MiuiLauncher
+import dev.barabu.pkit.ui.kit.motion_loop.MotionLoop
 import dev.barabu.pkit.ui.kit.racing_dots.RacingDots
 import dev.barabu.pkit.ui.kit.rotating_plane.RotatingPlane
 import dev.barabu.pkit.ui.kit.round_ripple.RoundRipple
@@ -54,6 +55,7 @@ import dev.barabu.pkit.ui.theme.FadingDotsColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.HeartBeatColor
 import dev.barabu.pkit.ui.theme.MiuiLauncherColor
+import dev.barabu.pkit.ui.theme.MotionLoopColor
 import dev.barabu.pkit.ui.theme.RacingDotsColor
 import dev.barabu.pkit.ui.theme.RotatingPlaneColor
 import dev.barabu.pkit.ui.theme.RoundRippleColor
@@ -73,6 +75,7 @@ enum class Screen(val title: String, val color: Color) {
     DoubleBounce("Double Bounce", DoubleBounceColor),
     RoundRipple("Round Ripple", RoundRippleColor),
     ThreeBounce("Three Bounce", ThreeBounceColor),
+    MotionLoop("Motion Loop",MotionLoopColor),
     RunningBeads("Running Beads", RunningBeadsColor),
     HeartBeat("Heart Beat", HeartBeatColor),
     CitrixLauncher("Citrix Launcher", CitrixLauncherColor),
@@ -156,6 +159,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.MotionLoop -> {
+                        MotionLoop(
+                            tint = Color.White,
+                            boxSize = 100.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
 
                     Screen.HeartBeat -> {
                         HeartBeat(
