@@ -45,6 +45,7 @@ import dev.barabu.pkit.ui.kit.scaled_dots.ScaledDots
 import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
 import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
+import dev.barabu.pkit.ui.kit.wavy_contour.WavyContour
 import dev.barabu.pkit.ui.live_pictures.AquariumFish
 import dev.barabu.pkit.ui.theme.AquariumColor
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
@@ -64,9 +65,11 @@ import dev.barabu.pkit.ui.theme.ScaledDotsColor
 import dev.barabu.pkit.ui.theme.ThreeBounceColor
 import dev.barabu.pkit.ui.theme.WanderingCubesColor
 import dev.barabu.pkit.ui.theme.WaveStripesColor
+import dev.barabu.pkit.ui.theme.WavyContourColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
+    WavyContour("Wavy Contour", WavyContourColor),
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     MiuiLauncher("Miui Launcher", MiuiLauncherColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
@@ -159,6 +162,14 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.WavyContour -> {
+                        WavyContour(
+                            tintColor = Color.White,
+                            boxSize = 100.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
 
                     Screen.MotionLoop -> {
                         MotionLoop(
