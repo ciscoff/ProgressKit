@@ -78,7 +78,7 @@ enum class Screen(val title: String, val color: Color) {
     DoubleBounce("Double Bounce", DoubleBounceColor),
     RoundRipple("Round Ripple", RoundRippleColor),
     ThreeBounce("Three Bounce", ThreeBounceColor),
-    MotionLoop("Motion Loop",MotionLoopColor),
+    MotionLoop("Motion Loop", MotionLoopColor),
     RunningBeads("Running Beads", RunningBeadsColor),
     HeartBeat("Heart Beat", HeartBeatColor),
     CitrixLauncher("Citrix Launcher", CitrixLauncherColor),
@@ -139,11 +139,12 @@ fun MainScreen(windowInsets: PaddingValues) {
         }*/
     ) {
         // Background
-        Spacer(modifier = Modifier
-            .fillMaxSize()
-            .drawBehind {
-                drawRect(color = backgroundColor, size = size)
-            })
+        Spacer(
+            modifier = Modifier
+                .fillMaxSize()
+                .drawBehind {
+                    drawRect(color = backgroundColor, size = size)
+                })
 
         Column(modifier = fillMaxSizeModifier.padding(windowInsets)) {
             Text(
@@ -165,8 +166,8 @@ fun MainScreen(windowInsets: PaddingValues) {
 
                     Screen.WavyContour -> {
                         WavyContour(
-                            tintColor = Color.White,
-                            boxSize = 100.dp,
+                            tintColor = Color(0xEEEEEEEE),
+                            boxSize = 140.dp,
                             modifier = fillMaxSizeModifier
                         )
                     }
