@@ -1,4 +1,4 @@
-package dev.barabu.pkit.ui.kit.wavy_contour
+package dev.barabu.pkit.ui.controls.wavy_button
 
 import android.graphics.PointF
 import androidx.compose.animation.core.LinearEasing
@@ -18,6 +18,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -26,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -117,6 +119,12 @@ private class Wavy(
         return points
     }
 }
+
+/**
+ * Расчет скалирования иконки для реакции на клик.
+ * Функция выдает 1.0>0.9>1.0 в диапазоне изменения аргумента -1.0<>1.0
+ */
+private fun iconScaleEasing(fraction: Float): Float = fraction * fraction * 0.1f + 0.9f
 
 private fun provideRoughWavyPath(dim: Dp, pieces: Int = 8, density: Density): Path {
     val num = if (pieces % 2 == 0) pieces else (pieces + 1)
@@ -224,7 +232,7 @@ private fun provideSmoothWavyPath(size: Dp, sectors: Int = 8, density: Density):
 }
 
 @Composable
-fun WavyContour(
+fun WavyButton(
     tintColor: Color,
     boxSize: Dp,
     modifier: Modifier = Modifier
@@ -234,6 +242,8 @@ fun WavyContour(
     val wavy = remember { Wavy(boxSize, 32, density) }
 
     var isClicked by remember { mutableStateOf(false) }
+
+    var iconScaleTrigger by remember { mutableFloatStateOf(1f) }
 
     val infiniteTransition = rememberInfiniteTransition(label = "infiniteTransition")
 
@@ -258,13 +268,21 @@ fun WavyContour(
         label = "curvature"
     )
 
+    val scaleFraction by animateFloatAsState(
+        targetValue = iconScaleTrigger,
+        animationSpec = tween(160),
+        label = "scale"
+    )
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
     ) {
 
         Icon(
-            modifier = Modifier.size(boxSize * 0.36f),
+            modifier = Modifier
+                .size(boxSize * 0.36f)
+                .scale(iconScaleEasing(scaleFraction)),
             painter = painterResource(id = R.drawable.ic_on_off),
             contentDescription = null,
             tint = tintColor
@@ -279,6 +297,7 @@ fun WavyContour(
                     indication = ripple(color = Color.White, bounded = true),
                     onClick = {
                         isClicked = !isClicked
+                        iconScaleTrigger = -1f * iconScaleTrigger
                         if (isClicked) {
                             isRotating = true
                         } else {

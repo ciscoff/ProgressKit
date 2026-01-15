@@ -45,7 +45,7 @@ import dev.barabu.pkit.ui.kit.scaled_dots.ScaledDots
 import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
 import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
-import dev.barabu.pkit.ui.kit.wavy_contour.WavyContour
+import dev.barabu.pkit.ui.controls.wavy_button.WavyButton
 import dev.barabu.pkit.ui.live_pictures.AquariumFish
 import dev.barabu.pkit.ui.theme.AquariumColor
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
@@ -65,11 +65,11 @@ import dev.barabu.pkit.ui.theme.ScaledDotsColor
 import dev.barabu.pkit.ui.theme.ThreeBounceColor
 import dev.barabu.pkit.ui.theme.WanderingCubesColor
 import dev.barabu.pkit.ui.theme.WaveStripesColor
-import dev.barabu.pkit.ui.theme.WavyContourColor
+import dev.barabu.pkit.ui.theme.WavyControlColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
-    WavyContour("Wavy Contour", WavyContourColor),
+    Aquarium("Aquarium", AquariumColor),
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     MiuiLauncher("Miui Launcher", MiuiLauncherColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
@@ -87,7 +87,7 @@ enum class Screen(val title: String, val color: Color) {
     ScaledDots("Scaled Dots", ScaledDotsColor),
     ChasingDots("Chasing dots", ChasingDotsColor),
     WaveStripes("Wave Stripes", WaveStripesColor),
-    Aquarium("Aquarium", AquariumColor),
+    WavyButton("Wavy Contour", WavyControlColor),
 }
 
 @Composable
@@ -164,8 +164,8 @@ fun MainScreen(windowInsets: PaddingValues) {
 
                 when (Screen.entries[index]) {
 
-                    Screen.WavyContour -> {
-                        WavyContour(
+                    Screen.WavyButton -> {
+                        WavyButton(
                             tintColor = Color(0xEEEEEEEE),
                             boxSize = 140.dp,
                             modifier = fillMaxSizeModifier

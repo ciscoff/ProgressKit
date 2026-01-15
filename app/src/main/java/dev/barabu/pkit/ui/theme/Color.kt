@@ -26,7 +26,7 @@ val RacingDotsColor = Color(0xFF3F51B5)
 val ScaledDotsColor = Color(0xffd35400)
 val WaveStripesColor = Color(0xFF78B3CE)
 val AquariumColor = Color(0xFFF96E2A)
-val WavyContourColor = Color(0xff2c3e50)
+val WavyControlColor = Color(0xff2c3e50)
 val MiuiLauncherColor = Color(0xFF795548)
 val HeartBeatColor = Color(0xFF110000)
 
