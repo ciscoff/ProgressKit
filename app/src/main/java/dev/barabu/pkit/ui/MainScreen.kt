@@ -28,10 +28,12 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.barabu.pkit.R
+import dev.barabu.pkit.ui.controls.wavy_button.WavyButton
 import dev.barabu.pkit.ui.kit.chasing_dots.ChasingDots
 import dev.barabu.pkit.ui.kit.citrix_launcher.CitrixLauncher
 import dev.barabu.pkit.ui.kit.cube_grid.CubeGrid
 import dev.barabu.pkit.ui.kit.double_bounce.DoubleBounce
+import dev.barabu.pkit.ui.kit.download.DownloadArrows
 import dev.barabu.pkit.ui.kit.fading_dots.FadingDots
 import dev.barabu.pkit.ui.kit.folding_grid.FoldingGrid
 import dev.barabu.pkit.ui.kit.heart_beat.HeartBeat
@@ -45,13 +47,13 @@ import dev.barabu.pkit.ui.kit.scaled_dots.ScaledDots
 import dev.barabu.pkit.ui.kit.three_bounce.ThreeBounce
 import dev.barabu.pkit.ui.kit.wandering_cubes.WanderingCubes
 import dev.barabu.pkit.ui.kit.wave_stripes.WaveStripes
-import dev.barabu.pkit.ui.controls.wavy_button.WavyButton
 import dev.barabu.pkit.ui.live_pictures.AquariumFish
 import dev.barabu.pkit.ui.theme.AquariumColor
 import dev.barabu.pkit.ui.theme.ChasingDotsColor
 import dev.barabu.pkit.ui.theme.CitrixLauncherColor
 import dev.barabu.pkit.ui.theme.CubeGridColor
 import dev.barabu.pkit.ui.theme.DoubleBounceColor
+import dev.barabu.pkit.ui.theme.DownloadArrowsColor
 import dev.barabu.pkit.ui.theme.FadingDotsColor
 import dev.barabu.pkit.ui.theme.FoldingGridColor
 import dev.barabu.pkit.ui.theme.HeartBeatColor
@@ -69,7 +71,7 @@ import dev.barabu.pkit.ui.theme.WavyControlColor
 import kotlin.math.abs
 
 enum class Screen(val title: String, val color: Color) {
-    Aquarium("Aquarium", AquariumColor),
+
     RotatingPlane("Rotating plane", RotatingPlaneColor),
     MiuiLauncher("Miui Launcher", MiuiLauncherColor),
     FoldingGrid("Folding Grid", FoldingGridColor),
@@ -88,6 +90,8 @@ enum class Screen(val title: String, val color: Color) {
     ChasingDots("Chasing dots", ChasingDotsColor),
     WaveStripes("Wave Stripes", WaveStripesColor),
     WavyButton("Wavy Contour", WavyControlColor),
+    DownloadArrows("Download Arrows", DownloadArrowsColor),
+    Aquarium("Aquarium", AquariumColor),
 }
 
 @Composable
@@ -163,6 +167,13 @@ fun MainScreen(windowInsets: PaddingValues) {
                 key = { i -> i }) { index ->
 
                 when (Screen.entries[index]) {
+
+                    Screen.DownloadArrows -> {
+                        DownloadArrows(
+                            arrowSize = 80.dp,
+                            modifier = fillMaxSizeModifier
+                        )
+                    }
 
                     Screen.WavyButton -> {
                         WavyButton(
